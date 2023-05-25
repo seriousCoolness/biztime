@@ -2,12 +2,12 @@
 
 
 const express = require("express");
-
 const app = express();
-const ExpressError = require("./expressError")
+const ExpressError = require("./expressError");
+
+const companies = require('./routes/companies');
 
 app.use(express.json());
-
 
 /** 404 handler */
 
@@ -27,5 +27,8 @@ app.use((err, req, res, next) => {
   });
 });
 
+/** companies.js router */
+
+app.use('/companies', companies);
 
 module.exports = app;
