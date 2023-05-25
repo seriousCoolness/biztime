@@ -9,6 +9,10 @@ const companies = require('./routes/companies');
 
 app.use(express.json());
 
+/** companies.js router */
+
+app.use('/companies', companies);
+
 /** 404 handler */
 
 app.use(function(req, res, next) {
@@ -27,8 +31,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-/** companies.js router */
-
-app.use('/companies', companies);
 
 module.exports = app;
